@@ -49,9 +49,27 @@ class StringUtilsTest {
     }
 
     @Test
+    @DisplayName("Une chaîne avec un seul élement ouvrant ne répond pas aux specs")
+    void chaineUnSeulOuvrant(){
+        assertFalse(StringUtils.isBalanced("{"), "Une chaîne avec un seul élement ouvrant est déséquilibrée");
+    }
+
+    @Test
+    @DisplayName("Une chaîne avec un seul élement fermant ne répond pas aux specs")
+    void chaineUnSeulFermant(){
+        assertFalse(StringUtils.isBalanced("]"), "Une chaîne avec un seul élement fermant est déséquilibrée");
+    }
+
+    @Test
     @DisplayName("Une chaîne avec un élement fermant en trop est déséquilibrée")
     void chaineTropClosedElement(){
         assertFalse(StringUtils.isBalanced(chTooMuchClosed), "Une chaîne avec un élement fermant en trop est déséquilibrée");
+    }
+
+    @Test
+    @DisplayName("Une chaîne avec une paire qui ne s'apparie pas")
+    void chaineNonApparie(){
+        assertFalse(StringUtils.isBalanced("{)"), "Une chaîne avec une paire qui ne s'apparie pas est déséquilibrée");
     }
 
 
