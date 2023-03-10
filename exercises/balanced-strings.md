@@ -26,3 +26,16 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 
 ## Answer
 
+R1 : Nous avons 4 caractéristiques de la méthode à partitionner : 
+- longueur : 2 blocs (longueur=0-> renvoie true; longueur>0: doit être testé avec d’autres blocs)
+- vocabulaire : 2 blocs ( vocabulaire1 ={[(}]) => doit être testé avec d’autres blocs, vocabulaireAutre	∉vocabulaire1 => renvoie faux)
+- isBalanced (2 blocs : true ou false)
+- paire ([0-1];[1;10][1;100]...)
+
+R2. La couverture du code était initialement à 92%, un retour à false n’était alors pas exécuté. La suppression de cette méthode n’a pas modifié le résultat des tests, il est alors apparu que ce retour était inutile. En la supprimant, la couverture est montée à 100%.
+
+R4 : ajout de cas de test avec un seul élément ouvrant et un seul élément fermant.
+
+R5 : refonte du code pour ne plus utiliser la récursivité qui ne présentait pas d’intérêt ici car nous pouvions utiliser une boucle for et une pile. 
+Résultats du PIT : 26 mutants tués et 1 survivant 
+Ajout d’un cas de test avec un mauvais appariement => 27 mutants tués.
