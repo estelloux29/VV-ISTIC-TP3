@@ -11,3 +11,6 @@ Answer the following questions:
 4. In JUnit 4, an exception was expected using the `@Test` annotation, while in JUnit 5 there is a special assertion method `assertThrows`. In your opinion, what are the advantages of this new way of checking expected exceptions?
 
 ## Answer
+
+R4. Lors de la lecture du rapport de test, il est plus facile de catégoriser les tests en fonction de ce qu’ils détectent. Ainsi l’ajout de l’annotation d’assertThrows apporte plus de lisibilité. 
+!!!! à compléter !!!!
