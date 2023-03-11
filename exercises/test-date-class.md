@@ -73,7 +73,7 @@ Nous avons créé de nouveaux tests qui ont révélé des erreurs dans nos méth
 L'élaboration de nouveaux cas de tests nous a permis d'améliorer le code sur 2 méthodes.
 
 R3. 
-Une méthode comporte un prédicat qui utilise plus de 2 opérateurs booléens: isLeapYear
+Une méthode comporte un prédicat qui utilise plus de 2 opérateurs booléens: isLeapYear()
 Elle doit tenir compte de toute combinaison de valeurs de vérité de toutes les clauses et garantir toutes les valeurs possibles pour le prédicat.
 En réalisant l'analyse de chaque expression et des combinaisons possibles, il est ressorti qu'il faut tester absolument 3 cas:
 a) une année multiple de 4, non multiple de 100 , non multiple de 400.(exemple: 1992)
@@ -84,5 +84,13 @@ Les cas de test de a) (isLeapYearLogicCoverage) et b) (isLeapYearLogicCoverage2)
 
 6. Use PIT to evaluate the test suite you have so far. Describe below the mutation score and the live mutants. Add new test cases or refactor the existing ones to achieve a high mutation score.
 DAns un premier temps les résultats ont été médiocres: 
+couverture des lignes = 77%
+mutants générés = 59, seulement un peu plus de la moitié killed = 61%
+
 ![image](https://user-images.githubusercontent.com/106377460/224506893-62cf9f97-2a20-4d4c-88bf-51687ff7c746.png)
 
+En reprenant le code et en ajoutant des méthodes cela a permis d'augmenter significativement la couverture des lignes(91%). 90 mutations ont été générées et 73 Killed(81%). 
+
+![image](https://user-images.githubusercontent.com/106377460/224508903-22a06c7a-cd0a-46fc-a9ea-ece46313abba.png)
+
+Cela permet de constater l'efficacité de l'outil PIT et l'aide qu'il peut apporter dans l'amélioration de nos pratiques de développeur.
