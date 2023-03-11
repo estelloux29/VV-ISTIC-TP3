@@ -14,9 +14,17 @@ Discuss the test smell you found with the help of PMD and propose here an improv
 Include the improved test code in this file.
 
 ## Answer
-Nous avons étudié différents tests smells en cours: le piggybacking (avoir plusieurs oracles pour le même cas de test. Trop d'assertions dans le même cas de test ce empêchent la lisibilité), HappyPath sans tester aux limites, hidden dependency (test qui a besoin de données peuplées avant le run), useless assert, flackyTest (tests non déterministes dûs aux éxécutions parallèles).
-Comme nous l'avons vu en classe, un test ne doit tester qu'une seule chose (responsabilité unique) et, pour ce faire, il ne doit comporter que quelques assertions. Le nombre maximum d'assertions n'est évidemment pas clairement établi mais c'est une mauvaise odeur si une douzaine d'assertions se trouvent dans le même cas de test.  Comme dans "testChainedClosure()" dans le commons.collections4.ClosureUtilsTest.java où 13 assertions sont faites dans le même test. Il est difficile de comprendre pourquoi le test échoue. Il gagnerait à être découpé en 2 ou 3 cas de test plus petits. Ici, nous coupons le cas de test en deux et le dupliquons :
 
+Nous avons étudié différents tests smells en cours: 
+- le piggybacking= avoir plusieurs oracles pour le même cas de test. Trop d'assertions dans le même cas de test  empêchent la lisibilité.
+- HappyPath, une base nécessaire mais non suffisante, il faut ensuite élargir et tester aux limites en variants les données entrantes pour avoir une bonne couverture.
+- hidden dependency (test qui a besoin de données peuplées avant le run)
+- useless assert
+- flackyTest : tests non déterministes liés aux exécutions parallèles.
+
+Comme nous l'avons vu en classe, un test ne doit tester qu'une seule chose (responsabilité unique) et, pour ce faire, il ne doit comporter que quelques assertions. Le nombre maximum d'assertions n'est évidemment pas clairement établi mais c'est une mauvaise odeur si une douzaine d'assertions se trouvent dans le même cas de test, par exemple dans "testChainedClosure()" dans le commons.collections4.ClosureUtilsTest.java où 13 assertions sont faites dans le même test. Il est difficile de comprendre pourquoi le test échoue. Il gagnerait à être découpé en 2 ou 3 cas de test plus petits. Ici, nous coupons le cas de test en deux et le dupliquons :
+
+``
  import org.junit.Test;
  import static org.junit.jupiter.api.Assertions.assertAll;
  import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -85,6 +93,3 @@ MockClosure<Object> a = new MockClosure<>(); 
   assertThrows(NullPointerException.class, () -> ClosureUtils.chainedClosure(finalColl));    
   });   
   }}
-
-
-
