@@ -55,14 +55,14 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 R1. 
 Pour tester nous avons déterminé les caractéristiques et les blocs suivants:
 isValidDAte: 
-valeur de l'année:   <0   0  année bissextile valide     année "normale" valide
-valeur du mois:      <0   0   31 jours {1,3,5,7,8,10,12}  30 jours {4,6,9,11}  2    >12
-valeur du jour:      <0   0   >=1 et <=max(mois, année)    >max(mois, année) 
+valeur de l'année:     <0      0     année bissextile valide       année "normale" valide
+valeur du mois:        <0      0     31 jours {1,3,5,7,8,10,12}    30 jours {4,6,9,11}      2       >12
+valeur du jour:        <0      0     >=1 et <=max(mois, année)      >max(mois, année) 
 
 Cela est aussi valable pour les méthodes  nextDate, previousDate et compareTo. 
 
 Pour isLeapYear, seuls l'année est prise en compte et on a 4 blocs. 
-valeur de l'année:   <0   0   année bissextile valide     année "normale" valide
+valeur de l'année:   <0      0      année bissextile valide       année "normale" valide
 
 
 
@@ -72,15 +72,17 @@ La couverture initiale avec un minimum de 'base choice' était de 100% des méth
 Nous avons créé de nouveaux tests qui ont révélé des erreurs dans nos méthodes, notamment il a fallu modifier isValidDate. Ensuite il a fallu améliorer la méthode NextDate qui était erronée au niveau du passage du 29 février 2020 (mois de février d'une année bissextile). DE même pour le 31 décembre il y avait un souci au niveau du changement d'année, qui n'avait pas été révélé avant de tester ces blocks particuliers.
 L'élaboration de nouveaux cas de tests nous a permis d'améliorer le code sur 2 méthodes.
 
-R3. If you have in your code any predicate that uses more than two boolean operators check if the test cases written to far satisfy *Base Choice Coverage*. If needed add new test cases. Describe below how you evaluated the logic coverage and the new test cases you added.
+R3. 
 Une méthode comporte un prédicat qui utilise plus de 2 opérateurs booléens: isLeapYear
 Elle doit tenir compte de toute combinaison de valeurs de vérité de toutes les clauses et garantir toutes les valeurs possibles pour le prédicat.
 En réalisant l'analyse de chaque expression et des combinaisons possibles, il est ressorti qu'il faut tester absolument 3 cas:
 a) une année multiple de 4, non multiple de 100 , non multiple de 400.(exemple: 1992)
 b) une année multiple de 4, multiple de 100, multiple de 400.(exemple: 2000) 
 c) une année non  multiple de 4, non multiple de 100 non multiple de 400.(exemple: 2021) 
-Les cas de test a et b ont été ajoutés. Par contre le cas c était déjà testé initialement donc pas besoin d'ajouter un test ici.
+Les cas de test de a) (isLeapYearLogicCoverage) et b) (isLeapYearLogicCoverage2) ont été ajoutés. Par contre le cas c était déjà testé initialement donc pas besoin d'ajouter un test ici.
 
 
-Base Choice Coverage 
 6. Use PIT to evaluate the test suite you have so far. Describe below the mutation score and the live mutants. Add new test cases or refactor the existing ones to achieve a high mutation score.
+DAns un premier temps les résultats ont été médiocres: 
+![image](https://user-images.githubusercontent.com/106377460/224506893-62cf9f97-2a20-4d4c-88bf-51687ff7c746.png)
+
