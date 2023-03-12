@@ -15,12 +15,12 @@ R1: Cela échoue car on multiplie un int et un float. L'assertion devrait être 
 
 R2. La méthode assertEquals vérifie si deux objets ont la même valeur, alors que la méthode assertSame vérifie s'ils sont identiques en termes de référence mémoire.
 ```java
- List<String> list1 = Arrays.asList("one", "two", "three");
+ List<String> list1 = Arrays.asList("un", "deux", "trois");
  List<String> list2 = new ArrayList<>(list1);
 // assertEquals : Vérifie si les valeurs sont égales
-assertEquals(list1, list2); // passe, les deux listes ont les mêmes valeurs
+assertEquals(list1, list2);  // succès car les deux listes contiennent les mêmes valeurs
 // assertSame : Vérifie si les références sont les mêmes
-assertSame(list1, list2); // échoue, les deux listes sont stockées dans des objets différents
+assertSame(list1, list2); // échec car les deux listes sont stockées dans des objets différents
 ```
 
 R3. Si l'on souhaite marquer une fonctionnalité qui n'a pas encore été implémentée, on peut utiliser fail comme substitut temporaire  en signalant qu'elle n'a pas encore été implémentée. Par exemple :  
