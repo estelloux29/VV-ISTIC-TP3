@@ -28,14 +28,27 @@ Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to compl
 
 R1 : Nous avons 4 caractéristiques de la méthode à partitionner : 
 - longueur : 2 blocs (longueur=0-> renvoie true; longueur>0: doit être testé avec d’autres blocs)
-- vocabulaire : 2 blocs ( vocabulaire1 ={[(}]) => doit être testé avec d’autres blocs, vocabulaireAutre	∉vocabulaire1 => renvoie faux)
+- vocabulaire : 2 blocs ( alphabetSpec ={[(}]) => doit être testé avec d’autres blocs, vocabulaireAutre	∉ alphabetSpec => renvoie faux)
 - isBalanced (2 blocs : true ou false)
 - paire ([0-1];[1;10][1;100]...)
 
-R2. La couverture du code était initialement à 92%, un retour à false n’était alors pas exécuté. La suppression de cette méthode n’a pas modifié le résultat des tests, il est alors apparu que ce retour était inutile. En la supprimant, la couverture est montée à 100%.
+Dans un premier temps, nous avons déterminé les inputs "Happy Paths" : longueur de chaîne à 0(chaîne vide), une seule paire, des paires imbriquées ou non, une chaîne longue (>100 caractères).
 
-R4 : ajout de cas de test avec un seul élément ouvrant et un seul élément fermant.
+Puis nous avons testé les limites du système (test de robustesse) : ajout d'un élement autre de l'alphabet correspondant au spec, ajout d'un élément ouvrant ou fermant en trop 
 
-R5 : refonte du code pour ne plus utiliser la récursivité qui ne présentait pas d’intérêt ici car nous pouvions utiliser une boucle for et une pile. 
+R2. La couverture du code était initialement à 92%, un retour à false n’était alors pas exécuté. Nous avons ajouté 2 cas de tests pour le cas où il n'y a q'un seul élément ouvrant ou un seul fermant. La couverture de code est alors montée à 100%.
+
+R3 : pas de logic coverage pour cette question
+
+R4 : Après exécution du PIT, nous avons fait une refonte du code pour ne plus utiliser la récursivité qui ne présentait pas d’intérêt ici car nous pouvions utiliser une boucle for et une pile. 
 Résultats du PIT : 26 mutants tués et 1 survivant 
-Ajout d’un cas de test avec un mauvais appariement => 27 mutants tués.
+![image](https://user-images.githubusercontent.com/113097128/224544006-b9c41380-b6a1-4676-987c-74b392e2d084.png)
+
+
+Ajout d’un cas de test dans le cas d'un mauvais appariement
+![image](https://user-images.githubusercontent.com/113097128/224544066-c6049c9f-3d42-4d89-bd16-2d106c34eb46.png)
+
+=> 27 mutants tués sur 27.
+![image](https://user-images.githubusercontent.com/113097128/224544097-aa462a69-7318-4c3a-87d5-fc63bae21a41.png)
+
+
