@@ -54,15 +54,15 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 ## Answer
 R1. 
 Pour tester nous avons déterminé les caractéristiques et les blocs suivants:
-isValidDAte: 
-valeur de l'année:     <0      0     année bissextile valide       année "normale" valide
-valeur du mois:        <0      0     31 jours {1,3,5,7,8,10,12}    30 jours {4,6,9,11}      2       >12
-valeur du jour:        <0      0     >=1 et <=max(mois, année)      >max(mois, année) 
+- isValidDAte: 
+1. valeur de l'année:     <0 ,     0 ,    année bissextile valide ,      année "normale" valide
+1. valeur du mois:        <0  ,    0  ,   31 jours {1,3,5,7,8,10,12},    30 jours {4,6,9,11} ,     2 ,      >12
+1. valeur du jour:        <0,      0 ,    >=1 et <=max(mois, année),      >max(mois, année) 
 
 Cela est aussi valable pour les méthodes  nextDate, previousDate et compareTo. 
 
-Pour isLeapYear, seuls l'année est prise en compte et on a 4 blocs. 
-valeur de l'année:   <0      0      année bissextile valide       année "normale" valide
+- Pour isLeapYear, seuls l'année est prise en compte et on a 4 blocs. 
+1. valeur de l'année:   <0 ,     0   ,   année bissextile valide  ,     année "normale" valide
 
 
 
