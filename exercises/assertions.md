@@ -11,6 +11,26 @@ Answer the following questions:
 4. In JUnit 4, an exception was expected using the `@Test` annotation, while in JUnit 5 there is a special assertion method `assertThrows`. In your opinion, what are the advantages of this new way of checking expected exceptions?
 
 ## Answer
+R1: Cela échoue car on multiplie un int et un float. L'assertion devrait être assertEquals qui prend cela en compte. 
 
-R4. Lors de la lecture du rapport de test, il est plus facile de catégoriser les tests en fonction de ce qu’ils détectent. Ainsi l’ajout de l’annotation d’assertThrows apporte plus de lisibilité. 
+R2. La méthode assertEquals vérifie si deux objets ont la même valeur, alors que la méthode assertSame vérifie s'ils sont identiques en termes de référence mémoire.
+```java
+ List<String> list1 = Arrays.asList("one", "two", "three");
+ List<String> list2 = new ArrayList<>(list1);
+// assertEquals : Vérifie si les valeurs sont égales
+assertEquals(list1, list2); // passe, les deux listes ont les mêmes valeurs
+// assertSame : Vérifie si les références sont les mêmes
+assertSame(list1, list2); // échoue, les deux listes sont stockées dans des objets différents
+```
+
+R3. Si l'on souhaite marquer une fonctionnalité qui n'a pas encore été implémentée, on peut utiliser fail comme substitut temporaire  en signalant qu'elle n'a pas encore été implémentée. Par exemple :  
+
+```java
+public void test1() {
+// TODO
+fail("fonctionnalité à implémenter");
+}
+```
+
+R4. Lors de la lecture du rapport de test, il est plus facile de catégoriser les tests en fonction de ce qu’ils détectent. Ainsi l’ajout de l’annotation d’assertThrows apporte plus de lisibilité car elle indique spécifiquement qu'une exception doit être levée.
 !!!! à compléter !!!!
